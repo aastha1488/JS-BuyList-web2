@@ -1,16 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head lang="uk">
-    <meta charset="UTF-8">
-    <title>My Page</title>
+  <head lang="uk">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кошик покупок</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
 
+  <body>
+    <div class="container">
+      <div class="list">
+        <div class="input-row">
+          <input type="text" placeholder="Назва товару" />
+          <div class="botton">
+            <button class="tooltip" data-tooltip="Додайте обраний товар">Додати</button>
+          </div>
+        </div>
 
-    <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
-<body>
-	<span class="product-item">
-		Apple
-		<span class="amount">4</span>
-	</span>
-</body>
+        <div class="list-item crossedlist">
+          <div class="item-name">
+            <span class="item-name-crossed">Помідори</span>
+          </div>
+          <div class="qty">
+            <button class="tooltip btn minus" data-tooltip="мінус">−</button>
+            <span class="counter">2</span>
+            <button class="tooltip btn plus" data-tooltip="+">+</button>
+          </div>
+          <div class="actions">
+            <button class="tooltip status" data-tooltip="status">Не куплено</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="item-name">
+            <span>Печиво</span>
+          </div>
+          <div class="qty">
+            <button class="tooltip btn minus" data-tooltip="-">−</button>
+            <span class="counter">2</span>
+            <button class="tooltip btn plus" data-tooltip="+">+</button>
+          </div>
+          <div class="actions">
+            <button class="tooltip status" data-tooltip="tool">Куплено</button>
+            <button class="tooltip btnn delete" data-tooltip="tool">×</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="item-name input-name">
+            <input type="text" value="Сир" /> <!---CUR-->
+          </div>
+          <div class="qty">
+            <button class="tooltip btnon minus" data-tooltip="-" disabled>−</button>
+            <span class="counter">1</span>
+            <button class="tooltip btn plus" data-tooltip="+">+</button>
+          </div>
+          <div class="actions">
+            <button class="tooltip status" data-tooltip="status">Куплено</button>
+            <button class="tooltip btnn delete" data-tooltip="delete">×</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="summary-section">
+          <h3 class="summary-section-name top-border-none">Залишилося</h3>
+          <div class="summary-item">
+            <span class="counter">Печиво<span class="tag">2</span></span>
+            <span class="counter">Сир<span class="tag">1</span></span>
+          </div>
+        </div>
+
+        <div class="summary-section">
+          <h3 class="summary-section-name">Куплено</h3>
+          <div class="summary-item">
+            <span class="crossed">Помідори<span class="tagg">2</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badge">
+      <span class="badge-label">Buy List<br /></span>
+      <span class="badge-creator"><br />Created by:</span>
+      <span class="badge-name">VoznuiK Vira</span>
+    </div>
+  </body>
 </html>
