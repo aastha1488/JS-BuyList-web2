@@ -1,17 +1,307 @@
-.product-item {
-	background-color: gray;
-	display: inline-block;
-	height: 25px;
-	padding: 5px;
-	border-radius: 5px;
+body {
+  font-family: sans-serif;
+  background: #dcdcdc;
+  margin: 0;
+  padding: 2rem;
 }
 
-.amount {
-	background-color: yellow;
-	border-radius: 10px;
-	
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	text-align: center;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.list,
+.summary {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  flex: 1.75;
+}
+
+.summary {
+  flex: 1;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding: 15px 20px;
+}
+
+.summary-secftion {
+  max-width: 400px;
+}
+
+.summary-item {
+  display: flex;
+  gap: 3px;
+  padding: 25px 15px;
+  flex-wrap: wrap;
+}
+
+.summary-section-name {
+  border-top: #ccc 1px solid;
+  border-bottom: #ccc 1px solid;
+  padding: 15px;
+}
+
+.top-border-none {
+  border-top: none;
+}
+
+.input-name input {
+  width: 100%;
+  flex: 1;
+  min-width: 50%;
+}
+
+.item-name {
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 800px;
+  display: flex;
+  min-width: 80px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 2000px;
+  min-width: 80px;
+  gap: 4px;
+}
+
+.actions {
+  display: flex;
+  align-items: right;
+  min-width: 5;
+  justify-content: right;
+  flex: 2;
+  min-width: 130px;
+  gap: 4px;
+}
+
+.counter,
+.btnn,
+.status,
+.crossed {
+  padding: 7px 11px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  align-items: center;
+}
+
+.crossedlist .btn.plus,
+.crossedlist .btn.minus {
+  visibility: hidden;
+}
+
+.btnon.minus {
+  background-color: #d46f79;
+  color: white;
+}
+
+.btn,
+.btnn,
+.status {
+  cursor: pointer;
+}
+
+.btn,
+.btnon {
+  padding: 8px 12px;
+}
+
+.btn.plus {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn,
+.btnn,
+.btnon,
+.botton,
+.status {
+  border: none;
+  box-shadow: 0 2px 0 rgba(22, 21, 21, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn,
+.btnon {
+  border-radius: 100%;
+}
+
+.btn:active,
+.btnn:active,
+.botton:active,
+.status:active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.btn.minus,
+.btnn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status {
+  background: #eee;
+}
+
+.crossed,
+.item-name-crossed {
+  text-decoration: line-through;
+}
+
+.tagg {
+  text-decoration: line-through;
+  color: white;
+}
+
+.counter,
+.crossed {
+  background: #a8a3a3;
+}
+
+.summary h3 {
+  margin: 0;
+}
+
+.tag,
+.tagg {
+  background-color: orange;
+  color: white;
+  border-radius: 50px;
+  padding: 3px 8px;
+  margin-left: 4px;
+}
+
+.input-row {
+  display: flex;
+  padding: 15px 20px;
+}
+
+.input-row input {
+  flex: 1;
+  padding-left: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.input-row button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.badge {
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+  background-color: #9a24c1;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px 20px 0 0;
+  cursor: pointer;
+  max-width: 100px;
+  height: 20px;
+  overflow: hidden;
+  transition: all 0.9s ease;
+  text-align: center;
+}
+
+.badge-creator,
+.badge-name {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.9s ease;
+}
+.badge-label {
+  font-weight: bold;
+}
+.badge-name {
+  font-size: 14px;
+  text-align: center;
+}
+
+.badge-creator {
+  font-size: 10px;
+  text-align: left;
+}
+
+.badge:hover {
+  background-color: #3a00d0;
+  height: 60px;
+}
+
+.badge:hover .badge-creator,
+.badge:hover .badge-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 550px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  .badge-label {
+    display: none;
+  }
+  .badge-name,
+  .badge-creator {
+    color: black;
+    display: contents;
+  }
+  .badge {
+    border: 1px solid #8a2be2;
+  }
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px) scale(0.3);
+  background-color: #7f1ca6;
+  color: #fff;
+  padding: 7px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  z-index: 100;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
 }
